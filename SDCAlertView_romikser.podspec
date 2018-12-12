@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.authors          = { "Scott Berrevoets" => "s.berrevoets@me.com" }
   s.source           = { :git => "https://github.com/romikser/SDCAlertView_romikser.git", :tag => "v_r#{s.version}" }
   s.social_media_url = "https://twitter.com/ScottBerrevoets"
-
+  s.module_name      = "SDCAlertView"
   s.source_files     = "Source/**/*.{swift}"
   s.resource_bundles = { 'SDCAlertView' => ['Source/**/*.{xib}'] }
 
