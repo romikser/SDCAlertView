@@ -67,6 +67,11 @@ open class AlertVisualStyle: NSObject {
     @objc
     public var textFieldMargins = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
 
+    /// The background color of a text field if added using the standard method call. Won't affect text fields
+    /// added directly to the alert's content view.
+    @objc
+    public var textFieldBackgroundColor = UIColor.white
+
     /// The color for a nondestructive action's text
     @objc
     public var normalTextColor: UIColor?
@@ -74,6 +79,10 @@ open class AlertVisualStyle: NSObject {
     /// The color for a destructive action's text
     @objc
     public var destructiveTextColor = UIColor.red
+
+    /// The color for a preferred action's text
+    @objc
+    public var preferredTextColor: UIColor?
 
     /// The font for an alert's preferred action
     @objc
@@ -128,7 +137,15 @@ open class AlertVisualStyle: NSObject {
     /// - returns: The text color, or nil to use the alert's `tintColor`.
     @objc
     open func textColor(for action: AlertAction?) -> UIColor? {
-        return action?.style == .destructive ? self.destructiveTextColor : self.normalTextColor
+        guard let action = action else { return self.normalTextColor }
+        switch action.style {
+        case .destructive:
+            return self.destructiveTextColor
+        case .normal:
+            return self.normalTextColor
+        case .preferred:
+            return self.preferredTextColor
+        }
     }
 
     /// The font for a given action.

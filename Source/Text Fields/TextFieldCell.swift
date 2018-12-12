@@ -17,6 +17,7 @@ final class TextFieldCell: UITableViewCell {
     var visualStyle: AlertVisualStyle? {
         didSet {
             self.textField?.font = self.visualStyle?.textFieldFont
+            self.textFieldContainer.backgroundColor = self.visualStyle?.textFieldBackgroundColor
             self.borderView.backgroundColor = self.visualStyle?.textFieldBorderColor
 
             guard let padding = self.visualStyle?.textFieldMargins else {

@@ -7,6 +7,7 @@ final class AlertLabel: UILabel {
         self.textAlignment = .center
         self.numberOfLines = 0
         self.translatesAutoresizingMaskIntoConstraints = false
+        self.backgroundColor = .clear
     }
 
     required init?(coder aDecoder: NSCoder) {
