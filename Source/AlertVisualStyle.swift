@@ -36,6 +36,10 @@ open class AlertVisualStyle: NSObject {
     @objc
     public var actionHighlightColor = UIColor(white: 0.8, alpha: 0.7)
 
+    /// The color of an action when the user is tapping it
+    @objc
+    public var actionTextAlignment = NSTextAlignment.center
+
     /// The color of the separators between actions
     @objc
     public var actionViewSeparatorColor = UIColor(white: 0.5, alpha: 0.5)
